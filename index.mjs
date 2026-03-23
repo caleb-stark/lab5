@@ -27,7 +27,7 @@ app.get('/comet-asteroids', (req, res) => {
 });
 
 app.get('/NASA-POD', async (req, res) => {
-    date = new Date().toISOString().split('T')[0];
+    const date = new Date().toISOString().split('T')[0];
     const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=9mUzIkhlZCZaOoMfspg7jMmwZCZ4LiRHtkgkambD&date=${date}`);
     const data = await response.json();
     res.render('nasa-pod.ejs', {data});
