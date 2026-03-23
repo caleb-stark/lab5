@@ -6,8 +6,16 @@
 
     <div class="container-fluid row">
       <div class="card p-3 m-3 col">
-        <h2>Planet</h2>
+        <h2>Description</h2>
         <%= planet_info.description %>
+        <h2>Details</h2>
+        Distance From Sun: <%= planet_info.distanceFromSun %> <br>
+        Year Length: <%= planet_info.yearLength %> <br>
+        Raduis: <%= planet_info.radius %> <br>
+        Eearth Day: <%= planet_info.oneEarthDay %> <br>
+        Moons: <%= planet_info.moons %>
+        <h2>Learn More</h2>
+        <a href="<%= planet_info.websiteLink %>">Nasa Link</a>
       </div>
       <div class="card m-3 col">
         <img src="<%=planet_info.image %>">

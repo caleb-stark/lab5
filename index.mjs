@@ -6,8 +6,12 @@ const planets = (await import('npm-solarsystem')).default;
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
-app.get('/', (req, res) => {
-    res.render('home.ejs')
+app.get('/', async (req, res) => {
+    const response = await fetch('https://pixabay.com/api/?key=5589438-47a0bca778bf23fc2e8c5bf3e&per_page=50&orientation=horizontal&q=solar%20system');
+    const data = await response.json();
+    const index = Math.floor(Math.random() * data.hits.length);
+    const image = data.hits[index];
+    res.render('home.ejs', {image});
 });
 
 app.get('/planet-info', (req, res) => {
@@ -23,7 +27,8 @@ app.get('/comet-asteroids', (req, res) => {
 });
 
 app.get('/NASA-POD', async (req, res) => {
-    const response = await fetch('https://api.nasa.gov/planetary/apod?api_key=9mUzIkhlZCZaOoMfspg7jMmwZCZ4LiRHtkgkambD&date=2026-03-11');
+    date = new Date().toISOString().split('T')[0];
+    const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=9mUzIkhlZCZaOoMfspg7jMmwZCZ4LiRHtkgkambD&date=${date}`);
     const data = await response.json();
     res.render('nasa-pod.ejs', {data});
 });
