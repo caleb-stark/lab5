@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><%- include('partials/head') %></head>
+<body>
+    <%- include('partials/nav') %>
+    <div class="container-fluid row">
+        <div class="card p-3 m-3 col">
+          <h2>NasaPod</h2>
+          <%= data.explanation %>
+        </div>
+        <div class="card m-3 col">
+          <img src="<%=data.url %>">
+        </div>
+      </div>
+</body>
+</html>

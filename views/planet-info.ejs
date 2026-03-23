@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><%- include('partials/head') %></head>
+  <body>
+    <%- include('partials/nav') %>
+
+    <div class="container-fluid row">
+      <div class="card p-3 m-3 col">
+        <h2>Planet</h2>
+        <%= planet_info.description %>
+      </div>
+      <div class="card m-3 col">
+        <img src="<%=planet_info.image %>">
+      </div>
+    </div>
+  </body>
+</html>
